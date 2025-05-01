@@ -1,0 +1,279 @@
+    
+/* google font : "play" 폰트 가져오기 */
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+/* Reset Style */
+/* 와일드카드 : 전체 적용 */
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box; /* 선 박스 안쪽으로 세팅 */
+}
+
+body {
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    background: #212121;
+
+    /* Google Font 적용 ( "play" 폰트 ) */
+    font-family: "Play", sans-serif;
+    color:#222;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color:inherit; /* inherit : 부모 상속 */
+}
+
+input {
+    border:0;
+    outline:0; /* 포커스 시 노출되는 border */
+}
+/* Reset Style End */
+
+
+.wrapper{
+    width:100%;
+    height:100%;
+    background: #888;
+}
+
+/*  header style */
+header {
+    position: fixed;
+    width:100%;
+    height:100px;
+    /* colorzilla : 색상 및 그래디언트 컬러 생성 사이트(툴) 활용 */
+    background: linear-gradient(45deg, #97e031 0%,#b9fb05 50%,#e6fc55 100%);
+    z-index: 1;
+}
+
+.logo {
+    width:160px;
+}
+
+.logo img {
+    width:100%;
+}
+
+/* Container Start */
+.container{
+    width:100%;
+    max-width: 1280px;
+    margin:0 auto;
+}
+
+header .container{
+    display: flex;
+    justify-content: space-between; /* 양 사이드 공백 없는 기준으로 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    padding:15px 0;
+}
+
+header .navi {
+    display:flex;
+}
+
+header .navi li {
+    position:relative;
+    margin: 0 25px;
+    padding: 0 2px 5px 2px;
+
+    white-space: nowrap;
+}
+
+header .navi li.active::after {
+    content: "";
+    position:absolute;
+    width:100%;
+    height: 2px;
+    background: #222;
+    left:0;
+    bottom:-2px;
+}
+
+header .menu {
+    display:none;
+    cursor: pointer;
+}
+
+header .menu i {
+    display:none;
+}
+header .menu i.ri-menu-line{
+    display:block;
+}
+header .menu.active i.ri-menu-line{
+    display:none;
+}
+header .menu.active i.ri-close-large-line{
+    display:block !important;
+}
+
+
+
+.vid {
+    position:fixed;
+    width:100%;
+    height:100%;
+    min-width: 1800px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+.vid video {
+    width:100%;
+}
+
+
+.cntn_wrapper{
+    position:relative;
+    width:100%;
+    height:calc(100% - 100px);
+    top: 100px;
+}
+
+.menu_navi{
+    position:absolute;
+    right:0;
+    width:0;
+    height:100%;
+    background: #222;
+    transition: all 0.3s ease;
+    z-index:1;
+}
+
+.menu_navi.active{
+    width:30%;
+}
+
+
+.menu_navi ul li{
+    color:#fff;
+    font-size:15px;
+    white-space: nowrap;
+    padding :15px;
+    border:1px solid #555;
+}
+
+
+
+/* Media query */
+@media(max-width:720px){
+    header .container {
+        padding: 15px 20px;
+    }
+    header .navi{
+        display:none;
+    }
+    header .menu {
+        display:block;
+    }
+    header .menu i {
+        font-size:25px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* .bg_video {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+} */
+
+.test ul {
+    position: relative;
+    top:0;
+    left:0;
+    display: inline-flex;
+    width :100%;
+    max-height: 100px;
+}
+
+.test ul li {
+    display: table;
+    position: relative;
+    width:100%;
+    max-width: 20%;
+    text-align: center;
+    background: yellow;
+    border: 1px solid #ddd;
+    border-right: none;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.test ul li p{
+    display: table-cell;
+    width:100%;
+    height:100%;
+    opacity:1;
+    color:#ddd;
+    vertical-align: middle;
+}
+
+.test ul li:first-child {
+    display: inline-block;
+    cursor: initial;
+}
+.test ul li:first-child{
+    width:100%;
+    max-width: 40%;
+    opacity: 1;
+}
+
+.test ul li img{
+    height:100%;
+}
+
+.test ul li:hover {
+    opacity: 1;
+}
+
+.test ul li p:hover{
+    opacity:1;
+    color:#000;
+}
+
+.test ul li:last-child{
+    display:none;
+    border:none;
+    width:40px;
+    height:40px;
+    position: absolute;
+    right: 0;
+    opacity: 1;
+}
+.test ul li:last-child p {
+    color:#000;
+}
+
+
+@media(max-width:720px){
+    .test ul {
+        background: yellow;
+        height: 40px;
+    }
+    .test ul li{
+        display: none !important;
+    }
+    .test ul li:last-child{
+        display: table !important;
+    }   
+}
