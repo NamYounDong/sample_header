@@ -139,29 +139,26 @@ header .menu.active i.ri-close-large-line{
     top: 100px;
 }
 
-.menu_navi{
+.menu_item{
     position:absolute;
     right:0;
     width:0;
     height:100%;
     background: #222;
-    transition: all 0.3s ease;
     z-index:1;
 }
 
-.menu_navi.active{
-    width:30%;
-}
-
-
-.menu_navi ul li{
+.menu_item ul li{
     color:#fff;
     font-size:15px;
     white-space: nowrap;
     padding :15px;
-    border:1px solid #555;
+    border-bottom:1px solid #555;
 }
 
+.menu_item ul li:last-child{
+    border-bottom:none;
+}
 
 
 /* Media query */
@@ -177,6 +174,13 @@ header .menu.active i.ri-close-large-line{
     }
     header .menu i {
         font-size:25px;
+    }
+
+    .menu_item {
+        transition: all 0.3s ease;
+    }
+    .menu_item.active{
+        width:30%;
     }
 }
 

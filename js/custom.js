@@ -3,13 +3,12 @@ window.onload = function(){
     const menu = document.querySelector(".menu");
     const icon = menu.querySelectorAll(".menu i")
 
-    const menuNav = document.querySelector(".menu_navi");
+    const menuItem = document.querySelector(".menu_item");
     
 
     menu.addEventListener("click", function(){
         this.classList.toggle("active");
-        menuNav.classList.toggle("active");
-        console.log(0)
+        menuItem.classList.toggle("active");
     });
 
 }
