@@ -13,27 +13,51 @@ window.onload = function(){
     });
 
     // Navigation Activate
-    const navs = document.querySelectorAll(".navi li");
+    const navs = document.querySelectorAll(".main_menu");
     
+    // Sub Menu Activate
+    const subMenus = document.querySelectorAll(".sub_menu");
+
     // forEach (배열아이템, 인덱스값)
     navs.forEach((nav, index, all) => {
-        // console.log(nav, index, all)
-        // console 작성법 
+        // console `를 활용한 작성법 
         console.log(`첫번째 : ${nav} - 두번째: ${index} - 세번째 : ${all}`);
 
         nav.querySelector("a").addEventListener("click", function(){
+            
+            var selfTarget = false; // 활성화 상태 타겟 여부
+
+            subMenus.forEach(function(subMenu){
+                subMenu.classList.remove("active");
+            });
+            
+            // 현재 active 상태 nav가 아닌 경우에만 동작하도록 지정
+            if(!nav.classList.contains("active")){ 
+                nav.querySelector(".sub_menu").classList.add("active");
+            }else{
+                selfTarget = true; // 현재 active 상태임을 판단
+            }
+
+
             navs.forEach((nav, index, all) => {
                 nav.classList.remove("active");
             })
-            this.parentNode.classList.add("active");
-        });
 
+            // 현재 active 상태 nav가 아닌 경우에만 동작하도록 지정
+            if(!selfTarget){ 
+                this.parentNode.classList.add("active");
+            }
+            // 스타일 지정 예시
+            // nav.style.height = "196px";
+
+            // setAttribute 예시
+            // nav.setAttribute("class", "active");
+        });
     });
     // navs.forEach(function(nav, index){});
     // ----> () => {} 는 function(){}과 동일(표현 방법만 다름)
     // 그런데 왜 addEventListener에 응용하면 this를 window를 가져오는지 모르겠네..
-    // this를 활용하려면 function을 사용해야 하는 듯 함.
-    
+    // ----> this를 활용하려면 function을 사용해야 하는 듯 함.
 }
 
 

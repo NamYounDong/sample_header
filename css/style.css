@@ -76,14 +76,16 @@ header .container{
 }
 
 header .navi {
-    display:flex;
+    display: flex;
+    position: relative;
+    height:85px;
+    align-items: center;
 }
 
 header .navi li {
     position:relative;
     margin: 0 25px;
     padding: 0 2px 5px 2px;
-
     white-space: nowrap;
 }
 
@@ -129,6 +131,56 @@ header .menu.active i.ri-close-large-line{
 
 .vid video {
     width:100%;
+}
+
+
+.sub_menu{
+    position:absolute;
+    width:auto;
+    top:calc(100% + 4px);
+    left:0;
+    background:#212121;
+    color:#fff;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-width:100%;
+    max-height:0;
+    /* 
+        li 태그가 ul 높이보다 높을 경우 
+        자식 노드여도 숨겨지지 않으므로 
+        overflow:hidden 옵션 적용 필요
+    */
+    overflow:hidden; 
+}
+
+.navi li:last-child .sub_menu {
+    right:0;
+    left:initial;
+}
+
+/* 
+    transition 의 경우 크기와 관련되어 있을 때  
+    넓이 또는 높이가 명확히 지정되어 있지 않은 경우,
+    동작하지 않음.
+    편법으로 다음과 같이 max-height 를 여유 있게 지정하여
+    max-height:300px ===> max-height : 0 으로 동작 가능
+*/
+.sub_menu.active{
+    max-height:300px; 
+}
+
+
+.sub_menu li{
+    padding: 3px 15px !important;
+    margin: 3px 0 !important;
+    transition: all 0.3s ease;
+}
+
+
+.sub_menu li:hover {
+    _background: linear-gradient(45deg, #97e031 0%,#b9fb05 50%,#e6fc55 100%);
+    background: #97e031;
+    color:#222;
 }
 
 
